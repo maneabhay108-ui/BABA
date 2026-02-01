@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Bhajan</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="dark-bg">
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<div class="sidebar active" id="sidebar">
+    <h2>🕉 Admin</h2>
+    <a href="/admin">⬅ Back</a>
+    <a href="/logout">🚪 Logout</a>
+</div>
+
+<div class="main">
+    <h2>Edit Bhajan</h2>
+    <form method="POST">
+        <input type="text" name="title" value="{{bhajan[1]}}" required><br><br>
+        <textarea name="content" rows="6">{{bhajan[2]}}</textarea><br><br>
+        <button type="submit">Update Bhajan</button>
+    </form>
+</div>
+
+<script>
+function toggleMenu(){ document.getElementById("sidebar").classList.toggle("active"); }
+</script>
+
+</body>
+</html>

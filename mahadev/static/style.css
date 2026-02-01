@@ -1,0 +1,61 @@
+body { margin:0; font-family:sans-serif; color:white; }
+
+/* Hamburger */
+.menu-btn {
+    font-size:28px;
+    padding:12px;
+    cursor:pointer;
+    background:rgba(0,0,0,0.7);
+    position:fixed;
+    top:10px;
+    left:10px;
+    z-index:1001;
+    border-radius:5px;
+}
+
+/* Sidebar */
+.sidebar {
+    width:220px;
+    background:rgba(0,0,0,0.9);
+    height:100vh;
+    padding:20px;
+    position:fixed;
+    left:-250px;
+    top:0;
+    transition:0.3s;
+    z-index:1000;
+}
+.sidebar.active { left:0; }
+.sidebar a { display:block; color:#fca311; padding:10px; text-decoration:none; }
+
+/* Desktop sidebar always visible */
+@media (min-width:769px) {
+    .sidebar { left:0; }
+    .menu-btn { display:none; }
+    .main, .bhajan-container, .home-content { margin-left:240px; }
+}
+
+/* HOME BACKGROUNDS */
+.home-bg {
+    min-height:100vh;
+    background:url("/static/mahadev_desktop.jpg") no-repeat center center/cover;
+}
+@media (max-width:768px) {
+    .home-bg {
+        background:url("/static/mahadev_mobile.jpg") no-repeat center center/cover;
+    }
+}
+
+.overlay { background:rgba(0,0,0,0.6); min-height:100vh; }
+.home-content { padding:20%; text-align:center; }
+
+/* Pages */
+.dark-bg { background:#0d1b2a; }
+.main { padding:30px; }
+.card { background:#1b263b; padding:12px; margin:10px 0; border-radius:8px; }
+
+.bhajan-bg { background:linear-gradient(to bottom,#0d1b2a,#1b263b); }
+.bhajan-container { padding:40px; max-width:800px; }
+.bhajan-text { background:rgba(255,255,255,0.1); padding:20px; border-radius:10px; line-height:1.8; }
+
+.login-box { text-align:center; margin-top:150px; }

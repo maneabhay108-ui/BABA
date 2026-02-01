@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{bhajan[1]}}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="bhajan-bg">
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<div class="sidebar" id="sidebar">
+    <h2>🕉</h2>
+    <a href="/">🏠 Home</a>
+    <a href="/bhajans">📖 Bhajan</a>
+</div>
+
+<div class="bhajan-container">
+    <h1>🕉 {{bhajan[1]}}</h1>
+
+    <div class="bhajan-text">
+        {{bhajan[2]|replace('\n','<br>')|safe}}
+    </div>
+
+    <!-- 👇 VIEWS ONLY FOR ADMIN -->
+    {% if is_admin %}
+        <p class="views">👁 Views: {{bhajan[3]}}</p>
+    {% endif %}
+</div>
+
+<script>
+function toggleMenu(){ document.getElementById("sidebar").classList.toggle("active"); }
+</script>
+
+</body>
+</html>

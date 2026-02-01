@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bhajan List</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="dark-bg">
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<div class="sidebar" id="sidebar">
+    <h2>🕉</h2>
+    <a href="/">🏠 Home</a>
+    <a href="/bhajans">📖 Bhajan</a>
+    <a href="/login">🔐 Admin</a>
+</div>
+
+<div class="main">
+    <h1>📜 Bhajan List</h1>
+    <form method="GET" action="/bhajans" style="margin-bottom:20px;">
+    <input type="text" name="search" placeholder="🔍 Bhajan search karo..."
+           value="{{ search_query }}" style="padding:8px; width:60%;">
+    <button type="submit" style="padding:8px;">Search</button>
+    </form>
+
+    {% for b in bhajans %}
+        <div class="card">
+            <a href="/bhajan/{{b[0]}}">{{b[1]}}</a>
+        </div>
+    {% endfor %}
+
+    {% if is_admin %}
+    <p class="views">👁 Views: {{b[3]}}</p>
+    {% endif %}
+
+</div>
+
+<script>
+function toggleMenu(){ document.getElementById("sidebar").classList.toggle("active"); }
+</script>
+
+</body>
+</html>

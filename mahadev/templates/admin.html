@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="dark-bg">
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<div class="sidebar active" id="sidebar">
+    <h2>🕉 Admin Panel</h2>
+    <a href="/">🏠 Home</a>
+    <a href="/bhajans">📖 Bhajan</a>
+    <a href="/logout">🚪 Logout</a>
+</div>
+
+<div class="main">
+    <h1>Add New Bhajan</h1>
+    <form method="POST">
+        <input type="text" name="title" placeholder="Bhajan Title" required><br><br>
+        <textarea name="content" rows="6" placeholder="Bhajan Lyrics"></textarea><br><br>
+        <button type="submit">Add Bhajan</button>
+    </form>
+
+   <h2>All Bhajans</h2>
+{% for b in bhajans %}
+    <div class="card">
+        <strong>{{b[1]}}</strong> — 👁 {{b[3]}} views <br>
+        <a href="/edit/{{b[0]}}">✏ Edit</a> |
+        <a href="/delete/{{b[0]}}" onclick="return confirm('Are you sure you want to delete this bhajan?')">🗑 Delete</a>
+    </div>
+{% endfor %}
+
+
+<script>
+function toggleMenu(){ document.getElementById("sidebar").classList.toggle("active"); }
+</script>
+
+</body>
+</html>
